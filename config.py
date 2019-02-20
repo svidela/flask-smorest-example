@@ -4,7 +4,6 @@
 class Config:
     # SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    # This is required even if we don't want to serve the spec
     OPENAPI_VERSION = '3.0.2'
     OPENAPI_URL_PREFIX = 'openapi'
 

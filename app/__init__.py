@@ -10,6 +10,9 @@ from config import config
 # migrate = Migrate()
 api = Api()
 
+from . import models
+
+
 def create_app(cfg='default'):
     app = Flask(__name__)
 

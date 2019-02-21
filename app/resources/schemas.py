@@ -8,7 +8,6 @@ class QueryByNameSchema(Schema):
         strict = True
 
 
-@api.definition('People')
 class PersonSchema(Schema):
     id = fields.Int(dump_only=True)
     name = fields.String()
@@ -20,7 +19,11 @@ class PersonSchema(Schema):
         strict = True
 
 
-@api.definition('Pet')
+class PersonNestedSchema(PersonSchema):
+    class Meta:
+        fields = ('id', 'name')
+
+
 class PetSchema(Schema):
     id = fields.Int(dump_only=True)
     name = fields.String()
@@ -30,12 +33,12 @@ class PetSchema(Schema):
     class Meta:
         strict = True
 
-@api.definition('Car')
+
 class CarSchema(Schema):
     id = fields.Int(dump_only=True)
     name = fields.String()
 
-    owner = fields.Nested(PersonSchema, only=('id',))
+    owner = fields.Nested(PersonNestedSchema)
 
     class Meta:
         strict = True

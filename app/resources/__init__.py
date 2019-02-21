@@ -1,5 +1,3 @@
-from . import schemas
-
 def register_blueprints(api):
     from . import pets, people, cars
 

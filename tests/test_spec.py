@@ -7,4 +7,4 @@ def test_get_spec(client):
     assert response.status_code == 200
     spec = json.loads(response.data)
 
-    assert len(spec['components']['schemas']) == 3
+    assert len(spec['components']['schemas']) == 4

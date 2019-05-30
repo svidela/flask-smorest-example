@@ -18,17 +18,19 @@ class DevelopmentConfig(Config):
     OPENAPI_REDOC_VERSION = 'next'
     OPENAPI_SWAGGER_UI_PATH = 'swagger-ui'
     OPENAPI_SWAGGER_UI_VERSION = '3.18.3'
+    
+    SOME_CONFIG = 'xyz'
 
 
 class TestingConfig(Config):
     TESTING = True
-
+    SOME_CONFIG = 'foo'
     # SQLALCHEMY_DATABASE_URI = os.getenv('TEST_DATABASE_URL')
 
 
 class ProductionConfig(Config):
     # SQLALCHEMY_DATABASE_URI = os.getenv('PROD_DATABASE_URL')
-    pass
+    SOME_CONFIG = 'bar'
 
 
 config = {

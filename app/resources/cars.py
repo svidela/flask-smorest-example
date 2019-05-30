@@ -1,3 +1,4 @@
+from flask import current_app
 from flask.views import MethodView
 from flask_rest_api import Blueprint, abort
 
@@ -29,7 +30,14 @@ class CarsById(MethodView):
     @_.response(CarSchema)
     def get(self, car_id):
         """Get car by ID"""
-        return {}
+        return {
+            'id': 1, 
+            'name': current_app.config['SOME_CONFIG'],
+            'owner': {
+                'id': 1,
+                'name': 'Foo Bar'
+            }
+        }
 
     @_.arguments(CarSchema)
     @_.response(CarSchema)

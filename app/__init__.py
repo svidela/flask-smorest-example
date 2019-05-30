@@ -1,16 +1,12 @@
 from flask import Flask
 
 from flask_rest_api import Api
-from apispec.ext.marshmallow import MarshmallowPlugin
-
 from config import config
 
 # Flask extensions-related objetcs
 # db = SQLAlchemy()
 # migrate = Migrate()
-api = Api()
-
-from . import models
+from . import models, resources
 
 
 def create_app(cfg='default'):
@@ -23,9 +19,9 @@ def create_app(cfg='default'):
     # db.init_app(app)
     # migrate.init_app(app, db)
 
-    from . import resources
-
+    api = Api()
     api.init_app(app)
+
     resources.register_blueprints(api)
 
     return app

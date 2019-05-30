@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields
-from app import api
+
 
 class QueryByNameSchema(Schema):
     name = fields.String()

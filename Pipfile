@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 flask-rest-api = "*"
+ipython = "*"
 
 [dev-packages]
 pytest = "*"

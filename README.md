@@ -1,3 +1,3 @@
-# flask-rest-api-example
+# flask-smorest-example
 
-This an attempt to create a minimal example of how to structure an application using the [flask-rest-api](https://github.com/Nobatek/flask-rest-api) framework. See this [issue](https://github.com/Nobatek/flask-rest-api/issues/38) for more info.
+This an example of a Flask application using the REST API framework [flask-smorest](https://github.com/marshmallow-code/flask-smorest).

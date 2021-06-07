@@ -1,6 +1,6 @@
 from flask import current_app
 from flask.views import MethodView
-from flask_rest_api import Blueprint, abort
+from flask_smorest import Blueprint, abort
 
 from .schemas import CarSchema, QueryByNameSchema
 
@@ -12,13 +12,13 @@ _ = Blueprint('Cars', 'cars',
 class Cars(MethodView):
 
     @_.arguments(QueryByNameSchema, location='query')
-    @_.response(CarSchema(many=True))
+    @_.response(200, CarSchema(many=True))
     def get(self, args):
         """List cars"""
         return []
 
     @_.arguments(CarSchema)
-    @_.response(CarSchema, code=201)
+    @_.response(201, CarSchema)
     def post(self, new_data):
         """Add a new car"""
         return {}
@@ -27,7 +27,7 @@ class Cars(MethodView):
 @_.route('/<car_id>')
 class CarsById(MethodView):
 
-    @_.response(CarSchema)
+    @_.response(200, CarSchema)
     def get(self, car_id):
         """Get car by ID"""
         return {
@@ -40,12 +40,12 @@ class CarsById(MethodView):
         }
 
     @_.arguments(CarSchema)
-    @_.response(CarSchema)
+    @_.response(200, CarSchema)
     def put(self, update_data, car_id):
         """Update existing car"""
         return {}
 
-    @_.response(code=204)
+    @_.response(204)
     def delete(self, car_id):
         """Delete car"""
         abort(404, message='Item not found.')
